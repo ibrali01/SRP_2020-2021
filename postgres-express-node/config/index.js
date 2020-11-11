@@ -26,4 +26,9 @@ module.exports = {
   api: {
     prefix: "/api",
   },
+
+  jwt: {
+    secret: process.env.MORGAN_FORMAT,
+    expiresIn: process.env.JWR_DURATION || "1h",
+  },
 };
