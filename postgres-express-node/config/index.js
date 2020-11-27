@@ -28,7 +28,7 @@ module.exports = {
   },
 
   jwt: {
-    secret: process.env.MORGAN_FORMAT,
+    secret: process.env.JWT_SECRET,
     expiresIn: process.env.JWR_DURATION || "1h",
   },
 };
