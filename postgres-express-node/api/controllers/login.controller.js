@@ -13,6 +13,7 @@ exports.login = async (req, res) => {
     }
 
     return res.status(401).json({error: "Not authorized"});
+ 
   } catch (err) {
     Logger.error(err);
     return res.status(400).json({ error: { message: err.message } });
