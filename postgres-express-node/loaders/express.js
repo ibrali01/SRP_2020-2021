@@ -16,7 +16,7 @@ module.exports = ({ app, HttpLogger: logger }) => {
   app.use(express.urlencoded({ extended: false }));
   app.use(
     jwt({
-      slgorithms: config.jwt.algorithms,
+      algorithms: config.jwt.algorithms,
       secret: config.jwt.secret,
     }).unless(config.jwt.exclude)
   );
@@ -41,7 +41,7 @@ module.exports = ({ app, HttpLogger: logger }) => {
   app.use((err, req, res, next) => {
     if (err.name === "UnauthorizedError") {
       err.status = 401;
-      err.message = "Noth authorized (invalid token)";
+      err.message = "Not authorized (invalid token)";
     }
 
     res.status(err.status || 500).json({
